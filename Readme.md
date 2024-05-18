@@ -9,3 +9,7 @@ A smart tool to automate github repository creations and updates with a single c
 
 [install locally]
 
+[commands]
+> motorgit createNewRepo
+
+> motorgit updateRepo -m "Motorgit Commit"
