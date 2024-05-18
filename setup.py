@@ -6,7 +6,8 @@ setup(
     version = Constants.version,
     packages = find_packages(),
     install_requires = [
-        'click'
+        'click',
+        'PyGithub'
     ],
     entry_points = '''
     [console_scripts]
