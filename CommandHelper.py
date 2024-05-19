@@ -9,6 +9,4 @@ def executeSubprocessCommand(command):
     return "-1"
 
 def executeCommandAndEchoOutput(command):
-    click.echo(command)
     status = executeSubprocessCommand(command)
-    click.echo(status)

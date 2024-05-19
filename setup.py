@@ -16,7 +16,7 @@ setup(
     description = 'A simple tool to automate github uploads',
     long_description = open('Readme.md').read(),
     long_description_content_type = 'text/markdown',
-    url = '',
+    url = 'https://github.com/AyushGupta0202/motorgit/',
     author = 'Ayush Gupta',
     author_email = 'ayushg430@gmail.com',
     license = 'MIT',
