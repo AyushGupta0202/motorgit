@@ -1,3 +1,5 @@
+![Motorgit Logo](motorgit_logo.png)
+
 # 🚀 Motorgit
 
 ## 🌟 Overview
@@ -121,6 +123,9 @@ cd motorgit
 pip install --editable .
 ```
 ## 📚 Usage
+
+![Motorgit Terminal Example](motorgit_terminal.png)
+
 ### Usage 🆕 Create a New Repository
 To create a new repository, use the following command:
 ```
