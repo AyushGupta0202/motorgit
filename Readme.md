@@ -9,11 +9,16 @@ Motorgit is a smart tool designed to automate GitHub repository creations and up
 1. [✨ Features](#features)
 2. [⚙️ Installation](#installation)
     - [📦 Install from pip](#install-from-pip)
-    - [🔑 Configure Personal Access Token (PAT), Username, and Email](#configure-personal-access-token-pat-username-and-email)
+    - [🔑 Configure GitHub Credentials](#configure-personal-access-token-pat-username-and-email)
+      - [Interactive Setup Wizard](#1-interactive-setup-wizard-recommended)
+      - [Manual Login/Logout](#2-manualloginlogout)
+      - [Configuration Management](#3-configuration-management)
+      - [Environment Variables](#4-environment-variables-legacy-method)
     - [🔧 Install Locally](#install-locally)
 3. [📚 Usage](#usage)
     - [🆕 Create a New Repository](#create-a-new-repository)
     - [🔄 Update Repository](#update-repository)
+    - [🔍 Shell Completion](#shell-completion)
 4. [🤝 Contribution](#contribution)
 5. [📜 License](#license)
 6. [👤 Author](#author)
@@ -23,6 +28,8 @@ Motorgit is a smart tool designed to automate GitHub repository creations and up
 - **🆕 Create New Repositories:** Quickly create new GitHub repositories from the command line.
 - **🔄 Update Repositories:** Easily update existing repositories with a single command.
 - **⚡ Efficient Workflow:** Automates repetitive tasks, saving time and reducing errors.
+- **🔍 Tab Completion:** Support for Bash, Zsh, and Fish shell completion.
+- **🔐 Secure Credentials:** Store GitHub credentials securely using system keyring.
 
 ## ⚙️ Installation
 
@@ -33,14 +40,67 @@ To install Motorgit using pip, run:
 ```
 pip install motorgit
 ```
-### 🔑 Configure Personal Access Token (PAT), Username, and Email
-Motorgit requires your GitHub personal access token (PAT), username, and email for authentication. Add the following lines to your **.bashrc** or **.zshrc** file:
+### 🔑 Configure GitHub Credentials
 
+Motorgit provides multiple secure ways to configure your GitHub credentials:
+
+#### 1. Interactive Setup Wizard (Recommended)
+
+Run the setup wizard to configure your credentials interactively:
+
+```bash
+motorgit setup
 ```
+
+This will prompt for your GitHub username, email, and access token, and store them securely using your system's credential store.
+
+#### 2. Manual Login/Logout
+
+You can also use the login/logout commands to manage your credentials:
+
+```bash
+# Store credentials securely
+motorgit login
+
+# Remove stored credentials
+motorgit logout
+```
+
+> **Note:**
+> Use `motorgit setup` for first-time or full configuration (including credentials and other settings).
+> Use `motorgit login` if you only want to update your GitHub credentials without changing other settings.
+
+| Command           | Prompts for Credentials | Stores Credentials | Configures Other Settings | Intended Use                |
+|-------------------|:----------------------:|:------------------:|:------------------------:|-----------------------------|
+| `motorgit setup`  |          Yes           |        Yes         |           Yes            | First-time or full setup    |
+| `motorgit login`  |          Yes           |        Yes         |           No             | Update credentials only     |
+
+#### 3. Configuration Management
+
+View or update configuration settings:
+
+```bash
+# View all configuration
+motorgit config
+
+# View specific configuration
+motorgit config github_username
+
+# Update configuration
+motorgit config github_username yourusername
+```
+
+#### 4. Environment Variables (Legacy Method)
+
+For backward compatibility or CI/CD environments, you can still use environment variables.
+Add the following lines to your **.bashrc** or **.zshrc** file:
+
+```bash
 export GITHUB_ACCESSTOKEN='your_personal_access_token'
 export GITHUB_USERNAME='your_github_username'
 export GITHUB_USEREMAIL='your_email@example.com'
 ```
+
 After adding the lines, reload your shell configuration:
 ```
 source ~/.bashrc  # For bash users
