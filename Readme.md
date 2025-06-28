@@ -146,6 +146,42 @@ This command will add changes to the repository and commit them with the provide
 motorgit updateRepo [-m commitmessage] [-b branchname]
 ```
 
+### 🔍 Shell Completion
+
+Motorgit supports shell tab completion for Bash, Zsh, and Fish using Click's built-in shell completion system. To enable shell completion, follow the instructions for your shell:
+
+#### Bash
+Add this to your `~/.bashrc`:
+```bash
+eval "$(_MOTORGIT_COMPLETE=bash_source motorgit)"
+```
+Or, to generate and source a static script:
+```bash
+_MOTORGIT_COMPLETE=bash_source motorgit > ~/.motorgit-complete.bash
+. ~/.motorgit-complete.bash
+```
+
+#### Zsh
+Add this to your `~/.zshrc`:
+```zsh
+eval "$(_MOTORGIT_COMPLETE=zsh_source motorgit)"
+```
+Or, to generate and source a static script:
+```zsh
+_MOTORGIT_COMPLETE=zsh_source motorgit > ~/.motorgit-complete.zsh
+. ~/.motorgit-complete.zsh
+```
+
+#### Fish
+Add this to `~/.config/fish/completions/motorgit.fish`:
+```fish
+_MOTORGIT_COMPLETE=fish_source motorgit > ~/.config/fish/completions/motorgit.fish
+```
+
+After modifying your shell configuration, start a new shell session or source the relevant file to activate completion.
+
+For more details, see the [Click Shell Completion documentation](https://click.palletsprojects.com/en/stable/shell-completion/).
+
 ## 🤝 Contribution
 Contributions are welcome! Please open an issue or submit a pull request on GitHub.
 
@@ -162,7 +198,9 @@ Contributions are welcome! Please open an issue or submit a pull request on GitH
 or after cloning use **motorgit** commands itself!
 
 ## 📜 License
-Motorgit is licensed under the MIT License. See the [LICENSE](https://github.com/AyushGupta0202/motorgit/blob/main/LICENSE.txt) file for more details.
+Motorgit is licensed under the MIT License. See the [LICENSE_MOTORGIT.txt](https://github.com/AyushGupta0202/motorgit/blob/main/LICENSE_MOTORGIT.txt) file for more details.
+
+> **Note:** The license file was renamed from LICENSE.txt to LICENSE_MOTORGIT.txt to avoid PyPI upload metadata issues. This ensures smooth uploads and full license compliance.
 
 ## 👤 Author
 Ayush Gupta

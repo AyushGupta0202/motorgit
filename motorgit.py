@@ -1,3 +1,7 @@
+import os
+import warnings
+if os.environ.get("_MOTORGIT_COMPLETE"):
+    warnings.filterwarnings("ignore")
 import click
 import GithubHelper
 import Constants
@@ -28,25 +32,6 @@ def createNewRepo(folderName, privateRepo):
 def updateRepo(commitMessage, branchName):
    """Update existing repository at remote."""
    GithubHelper.updateRepo(commitMessage, branchName)
-
-@motorgit.command('completion')
-@click.argument('shell', type=click.Choice(['bash', 'zsh', 'fish']))
-def completion(shell):
-    """Generate shell completion script."""
-    # Existing completion code...
-    instructions = {
-        'bash': "# Add this to your ~/.bashrc:\n# eval \"$(_MOTORGIT_COMPLETE=bash_source motorgit)\"",
-        'zsh': "# Add this to your ~/.zshrc:\n# eval \"$(_MOTORGIT_COMPLETE=zsh_source motorgit)\"",
-        'fish': "# Add this to ~/.config/fish/completions/motorgit.fish:\n# _MOTORGIT_COMPLETE=fish_source motorgit | source"
-    }
-    click.echo(instructions[shell])
-    click.echo(f"\n# Or save to a file and source it:")
-    if shell == 'fish':
-        click.echo(f"_MOTORGIT_COMPLETE={shell}_source motorgit > ~/.config/fish/completions/motorgit.fish")
-    else:
-        click.echo(f"_MOTORGIT_COMPLETE={shell}_source motorgit > ~/.motorgit-complete.{shell}")
-        click.echo(f"# Then add to your .{shell}rc:")
-        click.echo(f". ~/.motorgit-complete.{shell}")
 
 @motorgit.command('setup')
 @click.option('--non-interactive', is_flag=True, help="Use environment variables instead of prompting")
